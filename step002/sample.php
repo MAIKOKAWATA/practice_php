@@ -20,27 +20,31 @@ outputValue($shouhinmei, $otsuri);
  */
 function inputValue() {
     $args = $_SERVER['argv'];
-    return [$args[1], $args[2]];
+    return [$args[1], (int) $args[2]];
 }
 
 /**
  * 商品リストと照らし合わせてお釣り計算する関数
  * @param string $shouhinmei
  * @param int $kingaku
- * @return int 
+ * @return int | boolean
  */
 function calc($shouhinmei, $kingaku) {
-    $otsuri="0";
+    $otsuri=$kingaku;
     $list = [
-        "karupis" => "150",
-        "cola" => "120",
-        "ryokutya" => "130",
-        "monster" => "210"
+        [
+            "name" => "コーラ",
+            "price" => 120
+        ],
+        [
+            "name" => "カルピス",
+            "price" => 150
+        ]
     ];
-    foreach($list as $key => $value){
-        if($shouhinmei==$key){
-            $syouhinmei=$key;
-            $otsuri=$kingaku-$value;
+    foreach($list as $value){
+        if($shouhinmei==$value["name"]){
+            $syouhinmei=$value["name"];
+            $otsuri=$kingaku-$value["price"];
         }
     }
     return $otsuri;

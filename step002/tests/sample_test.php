@@ -36,6 +36,23 @@ class JihanTest extends TestCase
         $this->assertInternalType('int', $res[1]);
     }
 
+    // calc()の検証
+    public function test003()
+    {
+        $otsuri = calc('コーラ', 200);
+        $this->assertEquals(80, $otsuri);
+        $this->assertInternalType('int', $otsuri);
+
+        $otsuri = calc('カルピス', 200);
+        $this->assertEquals(50, $otsuri);
+
+        $otsuri = calc('ファンタ', 200);
+        $this->assertEquals(200, $otsuri);
+
+        $otsuri = calc('コーラ', 100);
+        $this->assertEquals(false, $otsuri);
+    }
+
     /*
 
     // inputValue()の検証 returnの中身
@@ -54,15 +71,7 @@ class JihanTest extends TestCase
         //$this->assertInternalType('int', $res[1]);
     }
 
-    // calc()の検証
-    public function test003()
-    {
-        $otsuri = calc('コーラ', 200);
-        //$this->assertEquals(0, $otsuri);
 
-        $otsuri = calc('カルピス', 200);
-        //$this->assertEquals(0, $otsuri);
-    }
 
     // outpitValue()の検証
     public function test004()
