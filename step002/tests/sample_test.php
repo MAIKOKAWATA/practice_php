@@ -53,10 +53,16 @@ class JihanTest extends TestCase
         $this->assertEquals(false, $otsuri);
     }
 
-    /*
     // outpitValue()の検証
     public function test004()
     {
+        $this->expectOutputRegex('/.*コーラ.*/');
+        $this->expectOutputRegex('/.*200.*/');
+        $otsuri = outputValue('コーラ', 200);
 
-    }*/
+    //    $this->expectOutputRegex('/.*モンスター.*/');//ない商品
+    //    $this->expectOutputRegex('/.*210.*/');
+    //    $otsuri = outputValue('モンスター', 200);
+        
+    }
 }
