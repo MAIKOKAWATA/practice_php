@@ -42,9 +42,14 @@ function calc($shouhinmei, $kingaku) {
         ]
     ];
     foreach($list as $value){
-        if($shouhinmei==$value["name"]){
-            $syouhinmei=$value["name"];
-            $otsuri=$kingaku-$value["price"];
+        if($shouhinmei == $value["name"]){
+            $syouhinmei = $value["name"];
+            if($kingaku < $value["price"]){
+                return false;                
+            }else{
+                $otsuri = $kingaku-$value["price"];
+                return $otsuri;
+            }
         }
     }
     return $otsuri;
