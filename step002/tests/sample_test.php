@@ -39,18 +39,31 @@ class JihanTest extends TestCase
     // calc()の検証
     public function test003()
     {
-        $otsuri = calc('コーラ', 200);
-        $this->assertEquals(80, $otsuri);
+        $output = calc('コーラ', 200);
+        $otsuri = $output[0];
+        $messege = $output[1];
+        $this->assertEquals(80, $otsuri); //期待する値、検証する変数
         $this->assertInternalType('int', $otsuri);
+        $this->assertEquals('', $messege);
+        $this->assertInternalType('string', $messege);
 
-        $otsuri = calc('カルピス', 200);
+        $output = calc('カルピス', 200);
+        $otsuri = $output[0];
+        $messege = $output[1];
         $this->assertEquals(50, $otsuri);
+        $this->assertEquals('', $messege);
 
-        $otsuri = calc('ファンタ', 200);
+        $output = calc('ファンタ', 200);
+        $otsuri = $output[0];
+        $messege = $output[1];
         $this->assertEquals(200, $otsuri);
+        $this->assertEquals('商品がありません', $messege);
 
-        $otsuri = calc('コーラ', 100);
+        $output = calc('コーラ', 100);
+        $otsuri = $output[0];
+        $messege = $output[1];
         $this->assertEquals(false, $otsuri);
+        $this->assertEquals('', $messege);
     }
 
     // outpitValue()の検証
@@ -60,7 +73,7 @@ class JihanTest extends TestCase
         $this->expectOutputRegex('/.*200.*/');
         $otsuri = outputValue('コーラ', 200);
 
-    //    $this->expectOutputRegex('/.*モンスター.*/');//ない商品
+    //    $this->expectOutputRegex('/.*モンスター.*/'); //ない商品
     //    $this->expectOutputRegex('/.*210.*/');
     //    $otsuri = outputValue('モンスター', 200);
         

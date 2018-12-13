@@ -8,7 +8,7 @@ list($shouhinmei, $kingaku) = inputValue();
  * $kingaku = $a[1];
  * これを1行で
  */
-$otsuri = calc($shouhinmei, $kingaku);
+$otsuri[] = calc($shouhinmei, $kingaku);
 outputValue($shouhinmei, $otsuri);
 
 /**
@@ -27,10 +27,11 @@ function inputValue() {
  * 商品リストと照らし合わせてお釣り計算する関数
  * @param string $shouhinmei
  * @param int $kingaku
- * @return int | boolean
+ * @return array[int,string] 
  */
 function calc($shouhinmei, $kingaku) {
-    $otsuri=$kingaku;
+    $otsuri = $kingaku;
+    $messege = "";
     $list = [
         [
             "name" => "コーラ",
@@ -41,18 +42,20 @@ function calc($shouhinmei, $kingaku) {
             "price" => 150
         ]
     ];
-    foreach($list as $value){
-        if($shouhinmei == $value["name"]){
-            $syouhinmei = $value["name"];
-            if($kingaku < $value["price"]){
-                return false;                
-            }else{
-                $otsuri = $kingaku-$value["price"];
-                return $otsuri;
+    foreach ($list as $value) {
+        if ($shouhinmei == $value["name"]) {
+            $messege = "";
+            if ($kingaku < $value["price"]) {
+                return [false, $messege]; 
+            } else {
+                $otsuri = $kingaku - $value["price"];
+                return [$otsuri, $messege];
             }
+        } else {
+            $messege = "商品がありません";
         }
     }
-    return $otsuri;
+    return [$otsuri, $messege];
 }
 
 /**
@@ -62,6 +65,6 @@ function calc($shouhinmei, $kingaku) {
  * @return void
  */
 function outputValue($shouhinmei, $otsuri) {
-    echo $shouhinmei;//商品のエコー
-    echo $otsuri;//おつりのエコー
+    echo $shouhinmei; //商品のエコー
+    echo $otsuri;     //おつりのエコー
 }
