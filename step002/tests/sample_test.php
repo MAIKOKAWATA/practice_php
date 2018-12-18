@@ -73,9 +73,9 @@ class JihanTest extends TestCase
         $this->expectOutputRegex('/.*200.*/');
         $otsuri = outputValue('コーラ', 200);
 
-    //    $this->expectOutputRegex('/.*モンスター.*/'); //ない商品
-    //    $this->expectOutputRegex('/.*210.*/');
-    //    $otsuri = outputValue('モンスター', 200);
+        $this->expectOutputRegex('/.*モンスター.*/'); //ない商品
+        $this->expectOutputRegex('/.*210.*/');
+        $otsuri = outputValue('モンスター', 210);
         
     }
 }
