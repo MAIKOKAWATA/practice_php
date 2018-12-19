@@ -66,14 +66,22 @@ echo "\n";
  */
 
 
-foreach ($youtubers as $youtuber){
-//    $tameshi = $youtuber["belongs"];//この場合中身がどんどん上書きされて、"2"の人になる
-    $same_belongs = $youtubers[0]["belongs"];//"0"の人の情報が出る
+foreach ($youtubers as $key => $youtuber){
+    if($key==0){
+        $same_belongs = $youtubers[$key]["belongs"];        
+    }else{
+        $comparison = $youtubers[$key]["belongs"];
+        if($same_belongs == $comparison){
+            
+        }
+    }
+//    $tameshi = $youtuber[$key]["belongs"];//この場合中身がどんどん上書きされて、"2"の人になる
+//    $same_belongs = $youtubers[0]["belongs"];//"0"の人の情報が出る
 //    $sec_belongs = $youtubers[1]["belongs"];
 //    $thi_belongs = $youtubers[2]["belongs"];
 }
-var_dump($tameshi);
-//var_dump($same_belongs);echo "\n";
+//var_dump($tameshi);
+var_dump($same_belongs);echo "\n";
 //var_dump($sec_belongs);echo "\n";
 //var_dump($thi_belongs);echo "\n";
 

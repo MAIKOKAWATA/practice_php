@@ -11,7 +11,7 @@ $members[] = "yayoi";
 
 foreach($members as $key=>$member){
     if($member == "gun"){
-        unset($member);
+        unset($members[$key]);
     }
 }
 var_dump($members);
