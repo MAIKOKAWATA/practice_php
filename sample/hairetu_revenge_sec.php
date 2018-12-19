@@ -32,6 +32,11 @@ $youtubers = [
             ]
     ],
 ];
+//echo $youtubers[1]["name"];//tommyが出力されればOK
+echo "\n";
+echo "-------------";
+echo "\n";
+
 /**
  * foreachを1つ追加することで、何人になっても対応可能にする
  */
@@ -47,83 +52,34 @@ $youtubers = [
 /**
  * 1 .「全員の所属情報(belongs)のみをとってくる」をやってみる
  */
-$i = 0;
-foreach ($youtubers as $youtuber){
-    $i_belongs = $youtubers[$i]["belongs"];
-    $i++;
-    var_dump($i_belongs);
-}
+
+ //foreach($youtubers as $youtuber){
+ //    $belong = $youtuber["belongs"];
+     //上書きされていくのでこのままだと"2"の値がここにくる
+// }
+
+// var_dump($belong);
+// echo "/n";
 
 /**
  * 2. 「1人目の所属情報を全て保持する」をやってみる
- * $i=0;
- * if($i==0){
- *     $same_belongs = $youtubers[$i]["belongs"];
- *     var_dump($same_belongs);        
- * }
  */
+
+
+foreach ($youtubers as $youtuber){
+//    $tameshi = $youtuber["belongs"];//この場合中身がどんどん上書きされて、"2"の人になる
+    $same_belongs = $youtubers[0]["belongs"];//"0"の人の情報が出る
+//    $sec_belongs = $youtubers[1]["belongs"];
+//    $thi_belongs = $youtubers[2]["belongs"];
+}
+var_dump($tameshi);
+//var_dump($same_belongs);echo "\n";
+//var_dump($sec_belongs);echo "\n";
+//var_dump($thi_belongs);echo "\n";
 
 /**
  * 3. 1人目の所属情報($same_belongs)と
  * 2人目の所属情報(compa_belongs)を比較し、
  * 共通項を保持する
  */
-echo "いまここ\nこの下に結果が出ないとだめ\n";
-$i=0;
-$result_belongs=[];
-if($i==0){
-    $same_belongs = $youtubers[$i]["belongs"];
-    $i++;
-//    var_dump($same_belongs);//OK
-//    echo "\n ";
-//    var_dump($i);  //OK
-}
 
-if($i>=1){
-    foreach($youtubers as $youtuber){
-        $compa_belongs = $youtubers[$i]["belongs"];
-        foreach ($compa_belongs as $compa_belong){
-            $compa_belong = $compa_belongs[$i];
-        }
-/**
- *        echo "1人目の情報";
- *         var_dump($same_belongs);
- *         echo "\n2人目の情報";
- *         var_dump($compa_belongs);
- *         exit;
- *  
- */ 
-        $result_belongs = array_intersect($same_belongs,$compa_belongs);
-        var_dump($result_belongs);
-//        if($same_belongs == $compa_belongs){
-//            $result_belongs = $same_belongs;
-//            $i++;
-//            foreach($result_belongs as $result_belong){
-//                $result_belong = $result_belongs[$i];
-//            }
-//            var_dump($result_belongs);//NG
-        //}
-    }
-}
-
- /**
- * 1st一気に書いてみて詰まった
- * $belongs = [];
- * $res = [];
- * $i=0;
- * foreach ($youtubers as $youtuber){
- *     if ( $youtuber === reset($youtubers)) {
- *         $same_belongs = $youtubers[$i]["belongs"];
- *         $i++;
- * //        echo $same_belongs;exit;
- *     }else{
- *         //foreach ($youtubers as $belongs => $belong){
- *             if ($same_belongs == $youtubers[$i]["belongs"]){
- *                 $res = $same_belongs;
- *                 $i++;
- *             }
- *         //}
- *     }
- * }
- * var_dump($same_belongs);
- */

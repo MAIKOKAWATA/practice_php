@@ -93,7 +93,7 @@ echo "\n";
  * 2人目の所属情報(compa_belongs)を比較し、
  * 共通項を保持する
  */
-echo "いまここ\nこの下に結果が出ないとだめ\n";
+
 $i=0;
 $result_belongs=[];
 if($i==0){
@@ -110,8 +110,9 @@ if($i>=1){
         foreach ($compa_belongs as $compa_belong){
             $compa_belong = $compa_belongs[$i];
         }
+        $i++;
         $result_belongs = array_intersect($same_belongs,$compa_belongs);
-        var_dump($result_belongs);
+        var_dump($result_belongs);//NULL
     }
 }
 
