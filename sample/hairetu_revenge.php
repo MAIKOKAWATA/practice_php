@@ -53,6 +53,23 @@ var_dump($result_belongs);
  * foreachを1つ追加することで、何人になっても対応可能にする
  */
 /**
- * 1 .全員の所属情報(belongs)のみ
- * 2 .
+ * 1 .全員の所属情報(belongs)のみをとってくる
+ * 2 .1人目の所属情報を全て保持する
+ * 3 .1人目の所属情報と2人目の所属情報を比較し、共通項を保持する
+ * 4 .保持した共通項と3人目の所属情報を比較し、共通項を保持する
  */
+/**
+ * 今回の場合、uuumのみが出力されればOK
+ */
+foreach ($youtubers as $youtuber){
+    if ( $youtuber === reset($youtubers)) {
+        $same_belongs = $youtuber["belongs"];
+    }else{
+        foreach ($belongs as $belong){
+            if ($same_belongs == $belong){
+                $same_belongs = $belong;
+            }
+        }
+    }
+}
+var_dump($same_belongs);
