@@ -32,23 +32,31 @@ $youtubers = [
             ]
     ],
 ];
-//echo $youtubers[1]["name"];//tommyが出力されればOK
+echo $youtubers[1]["name"];//tommyが出力されればOK
+echo "\n";
+echo "-------------";
+echo "\n";
 /**
  * 以下、トミーくん(水溜りボンド)と虫さん(東海オンエア)の共通項を拾ってみる
  * uuumとmizutamarionairがでれば正解
  */
-//$mushi_belongs = $youtubers[0]["belongs"];
-//$tommy_belongs = $youtubers[1]["belongs"];
-//$result_belongs = [];
-
-//foreach ($mushi_belongs as $mushi_belong) {
-//    foreach ($tommy_belongs as $tommy_belong) {
-//        if($mushi_belong == $tommy_belong){
-//            $result_belongs[] = $mushi_belong;
-//        }
-//    }
-//}
-//var_dump($result_belongs);
+/**
+ * $mushi_belongs = $youtubers[0]["belongs"];
+ * $tommy_belongs = $youtubers[1]["belongs"];
+ * $result_belongs = [];
+ * 
+ * foreach ($mushi_belongs as $mushi_belong) {
+ *     foreach ($tommy_belongs as $tommy_belong) {
+ *         if($mushi_belong == $tommy_belong){
+ *             $result_belongs[] = $mushi_belong;
+ *         }
+ *     }
+ * }
+ * var_dump($result_belongs);
+ * echo "\n";
+ * echo "-------------";
+ * echo "\n";
+ */
 /**
  * foreachを1つ追加することで、何人になっても対応可能にする
  */
@@ -62,7 +70,67 @@ $youtubers = [
  * 今回の場合、uuumのみが出力されればOK
  */
 /**
- * 試行錯誤なう
+ * 1 .「全員の所属情報(belongs)のみをとってくる」をやってみる
+ * 
+ * $i = 0;
+ *  foreach ($youtubers as $youtuber){
+ *     $i_belongs = $youtubers[$i]["belongs"];
+ *     $i++;
+ *     var_dump($i_belongs);
+ * }
+ */
+/**
+ * 2. 「1人目の所属情報を全て保持する」をやってみる
+ * $i=0;
+ * if($i==0){
+ *     $same_belongs = $youtubers[$i]["belongs"];
+ *     var_dump($same_belongs);        
+ * }
+ */
+
+/**
+ * 3. 1人目の所属情報($same_belongs)と
+ * 2人目の所属情報(belongs_compa)を比較し、
+ * 共通項を保持する
+ */
+echo "いまここ\nこの下に結果が出ないとだめ";
+$i=0;
+$result_belongs=[];
+if($i==0){
+    $same_belongs = $youtubers[$i]["belongs"];
+    $i++;
+//    var_dump($same_belongs);//OK
+//    echo "\n ";
+//    var_dump($i);  //OK
+}
+if($i>=1){
+    foreach($youtubers as $youtuber){
+        $belongs_compa = $youtubers[$i]["belongs"];
+        foreach ($belongs_compa as $belong_compa){
+            $belong_compa = $belongs_compa[$i];
+        }        
+/**
+ *        echo "1人目の情報";
+ *         var_dump($same_belongs);
+ *         echo "\n2人目の情報";
+ *         var_dump($belongs_compa);
+ *         exit;
+ *  
+ */ 
+
+        if($same_belongs == $belongs_compa){
+            $result_belongs = $same_belongs;
+            $i++;
+            foreach($result_belongs as $result_belong){
+                $result_belong = $result_belongs[$i];
+            }
+            var_dump($result_belongs);//NG
+        }
+    }
+}
+
+ /**
+ * 1st一気に書いてみて詰まった
  * $belongs = [];
  * $res = [];
  * $i=0;
