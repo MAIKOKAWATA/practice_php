@@ -32,31 +32,6 @@ $youtubers = [
             ]
     ],
 ];
-//echo $youtubers[1]["name"];//tommyが出力されればOK
-echo "\n";
-echo "-------------";
-echo "\n";
-/**
- * 以下、トミーくん(水溜りボンド)と虫さん(東海オンエア)の共通項を拾ってみる
- * uuumとmizutamarionairがでれば正解
- */
-/**
- * $mushi_belongs = $youtubers[0]["belongs"];
- * $tommy_belongs = $youtubers[1]["belongs"];
- * $result_belongs = [];
- * 
- * foreach ($mushi_belongs as $mushi_belong) {
- *     foreach ($tommy_belongs as $tommy_belong) {
- *         if($mushi_belong == $tommy_belong){
- *             $result_belongs[] = $mushi_belong;
- *         }
- *     }
- * }
- * var_dump($result_belongs);
- * echo "\n";
- * echo "-------------";
- * echo "\n";
- */
 /**
  * foreachを1つ追加することで、何人になっても対応可能にする
  */
@@ -71,14 +46,14 @@ echo "\n";
  */
 /**
  * 1 .「全員の所属情報(belongs)のみをとってくる」をやってみる
- * 
- * $i = 0;
- *  foreach ($youtubers as $youtuber){
- *     $i_belongs = $youtubers[$i]["belongs"];
- *     $i++;
- *     var_dump($i_belongs);
- * }
  */
+$i = 0;
+foreach ($youtubers as $youtuber){
+    $i_belongs = $youtubers[$i]["belongs"];
+    $i++;
+    var_dump($i_belongs);
+}
+
 /**
  * 2. 「1人目の所属情報を全て保持する」をやってみる
  * $i=0;
