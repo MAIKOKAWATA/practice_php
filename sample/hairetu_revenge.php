@@ -32,23 +32,23 @@ $youtubers = [
             ]
     ],
 ];
-echo $youtubers[1]["name"];//tommyが出力されればOK
+//echo $youtubers[1]["name"];//tommyが出力されればOK
 /**
  * 以下、トミーくん(水溜りボンド)と虫さん(東海オンエア)の共通項を拾ってみる
  * uuumとmizutamarionairがでれば正解
  */
-$mushi_belongs = $youtubers[0]["belongs"];
-$tommy_belongs = $youtubers[1]["belongs"];
-$result_belongs = [];
+//$mushi_belongs = $youtubers[0]["belongs"];
+//$tommy_belongs = $youtubers[1]["belongs"];
+//$result_belongs = [];
 
-foreach ($mushi_belongs as $mushi_belong) {
-    foreach ($tommy_belongs as $tommy_belong) {
-        if($mushi_belong == $tommy_belong){
-            $result_belongs[] = $mushi_belong;
-        }
-    }
-}
-var_dump($result_belongs);
+//foreach ($mushi_belongs as $mushi_belong) {
+//    foreach ($tommy_belongs as $tommy_belong) {
+//        if($mushi_belong == $tommy_belong){
+//            $result_belongs[] = $mushi_belong;
+//        }
+//    }
+//}
+//var_dump($result_belongs);
 /**
  * foreachを1つ追加することで、何人になっても対応可能にする
  */
@@ -61,15 +61,24 @@ var_dump($result_belongs);
 /**
  * 今回の場合、uuumのみが出力されればOK
  */
-foreach ($youtubers as $youtuber){
-    if ( $youtuber === reset($youtubers)) {
-        $same_belongs = $youtuber["belongs"];
-    }else{
-        foreach ($belongs as $belong){
-            if ($same_belongs == $belong){
-                $same_belongs = $belong;
-            }
-        }
-    }
-}
-var_dump($same_belongs);
+/**
+ * 試行錯誤なう
+ * $belongs = [];
+ * $res = [];
+ * $i=0;
+ * foreach ($youtubers as $youtuber){
+ *     if ( $youtuber === reset($youtubers)) {
+ *         $same_belongs = $youtubers[$i]["belongs"];
+ *         $i++;
+ * //        echo $same_belongs;exit;
+ *     }else{
+ *         //foreach ($youtubers as $belongs => $belong){
+ *             if ($same_belongs == $youtubers[$i]["belongs"]){
+ *                 $res = $same_belongs;
+ *                 $i++;
+ *             }
+ *         //}
+ *     }
+ * }
+ * var_dump($same_belongs);
+ */
