@@ -110,11 +110,6 @@ if($i>=1){
         foreach ($compa_belongs as $compa_belong){
             $compa_belong = $compa_belongs[$i];
         }
-        $result_belongs = array_intersect($same_belongs,$compa_belongs);
-        var_dump($result_belongs);
-    }
-}
-
 /**
  *        echo "1人目の情報";
  *         var_dump($same_belongs);
@@ -123,6 +118,8 @@ if($i>=1){
  *         exit;
  *  
  */ 
+        $result_belongs = array_intersect($same_belongs,$compa_belongs);
+        var_dump($result_belongs);
 //        if($same_belongs == $compa_belongs){
 //            $result_belongs = $same_belongs;
 //            $i++;
@@ -130,9 +127,11 @@ if($i>=1){
 //                $result_belong = $result_belongs[$i];
 //            }
 //            var_dump($result_belongs);//NG
-//        }
+        //}
+    }
+}
 
-/**
+ /**
  * 1st一気に書いてみて詰まった
  * $belongs = [];
  * $res = [];
