@@ -41,8 +41,7 @@ $youtubers = [
             "uuum",
             "origin_genesisone",        
         ]
-    ],
-    //タケヤキさん足しても、答えはuuumのみ
+    ],//タケヤキさん足しても、答えはuuumのみ
 ];
 /** ------------------------------------------------------
  * 1 .「全員の情報から、各人の所属情報(belongs)だけ取ってくる」をやってみる
@@ -86,8 +85,7 @@ foreach($youtubers as $key=>$youtuber){
         $comparison_belongs = my_array_intersect($comparison_belongs,$youtuber["belongs"]);
     }
 }
-//var_dump($same_belongs);
-//echo "\n--------------------------\n";
+
 var_dump($comparison_belongs);
 
 /*
