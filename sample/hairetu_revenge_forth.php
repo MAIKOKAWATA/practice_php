@@ -50,9 +50,9 @@ $belongs=[];
  foreach($youtubers as $key=>$youtuber){
     $belongs[] = $youtuber["belongs"];
 }
-*/
-//var_dump($belongs);exit;
 
+//var_dump($belongs);exit;
+*/
 /** -------------------------------------------------------
  * 2. 「1人目の所属情報を$same_belongsにいれる」をやってみる
  * --------------------------------------------------------
@@ -64,9 +64,9 @@ foreach($youtubers as $key=>$youtuber){
         $same_belongs = $youtuber["belongs"];
     }
 }
-*/
-//var_dump($same_belongs);exit;
 
+//var_dump($same_belongs);exit;
+*/
 /** -------------------------------------------------------
  * 3. 「2人目の所属情報を保持する」をやってみる
  *  -------------------------------------------------------
@@ -75,46 +75,74 @@ foreach($youtubers as $key=>$youtuber){
 $same_belongs = [];
 $comparison_belongs = [];
 $result = [];
+
+$same_belongs = [];
 foreach($youtubers as $key=>$youtuber){
     if($key==0){
-        $same_belongs = $youtuber["belongs"];//1人目
+        $same_belongs = $youtuber["belongs"];
     }else{
         $comparison_belongs = $youtuber["belongs"];
-        //var_dump($comparison_belongs);exit;
     }
-    //return $same_belongs;
-    //return $comparison_belongs;
 }
-//$same_belongsと$comparison_belongsを
-//それぞれforeachでまわして値一個ずつにして比べる必要有
-foreach($same_belongs as $same_belong){
-    //var_dump($same_belong);//uuum
-    foreach($comparison_belongs as $comparison_belong){
-        //var_dump($comparison_belong);exit;//uuum
-        if($same_belong == $comparison_belong){
-            //$same_belong=$comparison_belong;$same_belongs[]も$same_belongもOUT
-            //var_dump($result);//uuum
-            $result[] = $comparison_belong;
-//var_dump($result);exit;//uuum
-            //var_dump($result);//2回目のループでorigin_genesisone入ってきてNG
-        }
-        //var_dump($result);exit;//9回目のループでorigin_genesisone入ってきてNG
-    }
-    //var_dump($result);//uuum
-}
-var_dump($result);exit;//uuumとorigin_genesisone
-
-//    if($same_belongs == $comparison_belongs){
-//        $result = $comparison_belongs;
-        //これでは配列同士で比べるので$resultがarray(0)になってしまう
-//    }
-//$youtuber[1]["belongs"]がとれてない
-//echo "\n-----------------------------\n";
-//var_dump($youtuber[1]["belongs"]);
-echo "\n-----------------------------\n";
 //var_dump($same_belongs);
-echo "\n-----------------------------\n";
+//echo "\n--------------------------\n";
 //var_dump($comparison_belongs);
-echo "\n-----------------------------\n";
-var_dump($result);
-exit;
+
+
+foreach($same_belongs as $same_belong){
+    foreach($comparison_belongs as $comparison_belong){
+        if($same_belong==$comparison_belong){
+            $same_belongs=$comparison_belong;
+        }
+    }
+}
+var_dump($same_belongs);//0と2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+foreach($youtubers as $key=>$youtuber){
+    if($key==0){
+        $same_belongs = $youtuber["belongs"];
+    }else{
+        $comparison_belongs = $youtuber["belongs"];
+    }
+    foreach($same_belongs as $same_belong){
+        //var_dump($same_belong);exit;
+        foreach($comparison_belongs as $comparison_belong){
+            //var_dump($comparison_belong);exit;
+            if($same_belong == $comparison_belong){
+                $same_belong=$comparison_belong;
+//var_dump($result);exit;
+//var_dump($same_belong);exit;//uuum-OK
+            }
+            //var_dump($result);exit;
+            //var_dump($same_belong);exit;//uuum-OK
+        }
+        //var_dump($result);exit;
+        //var_dump($same_belong);exit;//uuum-OK
+    }
+    //var_dump($same_belong);exit;//rikei-NG
+}
+//var_dump($result);
+//echo $same_belong;
+echo $same_belong."\n";*/
