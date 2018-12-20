@@ -1,5 +1,5 @@
 <?php
-
+//https://gray-code.com/php/foreach-syntax/
 $youtubers = [
     "0" => [
         "name" => "mushimegane",
@@ -88,21 +88,20 @@ foreach($youtubers as $key=>$youtuber){
 //$same_belongsと$comparison_belongsを
 //それぞれforeachでまわして値一個ずつにして比べる必要有
 foreach($same_belongs as $same_belong){
-    //var_dump($same_belong);//uuum
+    //var_dump($same_belongs);exit;//ここ
     foreach($comparison_belongs as $comparison_belong){
-        //var_dump($comparison_belong);exit;//uuum
+        //var_dump($comparison_belongs);exit;//ここ
         if($same_belong == $comparison_belong){
             //$same_belong=$comparison_belong;$same_belongs[]も$same_belongもOUT
-            //var_dump($result);//uuum
             $result[] = $comparison_belong;
-//var_dump($result);exit;//uuum
+//var_dump($result);exit;//uuum(OK)ここ
             //var_dump($result);//2回目のループでorigin_genesisone入ってきてNG
         }
         //var_dump($result);exit;//9回目のループでorigin_genesisone入ってきてNG
     }
     //var_dump($result);//uuum
 }
-var_dump($result);exit;//uuumとorigin_genesisone
+//var_dump($result);exit;//uuumとorigin_genesisone
 
 //    if($same_belongs == $comparison_belongs){
 //        $result = $comparison_belongs;
@@ -112,9 +111,9 @@ var_dump($result);exit;//uuumとorigin_genesisone
 //echo "\n-----------------------------\n";
 //var_dump($youtuber[1]["belongs"]);
 echo "\n-----------------------------\n";
-//var_dump($same_belongs);
+var_dump($same_belongs);
 echo "\n-----------------------------\n";
-//var_dump($comparison_belongs);
+var_dump($comparison_belongs);
 echo "\n-----------------------------\n";
 var_dump($result);
 exit;
