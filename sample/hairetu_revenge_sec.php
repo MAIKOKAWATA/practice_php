@@ -65,21 +65,48 @@ echo "\n";
  * 2. 「1人目の所属情報を全て保持する」をやってみる
  */
 
+$same_belongs=[];
+$comparison_belongs=[];
+$result = [];
+foreach ($youtubers as $key => $youtuber){
+    if($key!=0){
+        var_dump($comparison_belongs);exit;
+        $comparison_belongs = $youtubers[$key]["belongs"];
+        //var_dump($comparison_belongs);exit;
+    }else{
+    //var_dump($same_belongs);exit;
+    $same_belongs = $youtubers[$key]["belongs"];        
+    //var_dump($same_belongs);exit;
 
+    }
+//    if($same_belongs == $comparison_belongs){
+//        $result = $same_belong;
+//    }
+    return $result;
+}
+/*
 foreach ($youtubers as $key => $youtuber){
     if($key==0){
+        //var_dump($same_belongs);exit;
         $same_belongs = $youtubers[$key]["belongs"];        
+        //var_dump($same_belongs);exit;
     }else{
-        $comparison = $youtubers[$key]["belongs"];
-        if($same_belongs == $comparison){
-            
-        }
+        var_dump($comparison_belongs);exit;
+        $comparison_belongs = $youtubers[$key]["belongs"];
+        //var_dump($comparison_belongs);exit;
     }
+//    if($same_belongs == $comparison_belongs){
+//        $result = $same_belong;
+//    }
+    return $result;
+}
+*/
+var_dump($result);
 //    $tameshi = $youtuber[$key]["belongs"];//この場合中身がどんどん上書きされて、"2"の人になる
 //    $same_belongs = $youtubers[0]["belongs"];//"0"の人の情報が出る
 //    $sec_belongs = $youtubers[1]["belongs"];
 //    $thi_belongs = $youtubers[2]["belongs"];
-}
+//}
 //var_dump($tameshi);
 var_dump($same_belongs);echo "\n";
 //var_dump($sec_belongs);echo "\n";
