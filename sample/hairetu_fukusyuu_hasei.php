@@ -62,18 +62,13 @@ $sanrio_characters = [
 
 $lineupColors = [];
 foreach ($sanrio_characters as $sanrio_character) {//1.2.
-    $lineupColors[] = $sanrio_character["colors"];
+    $countColors[] = array_count_values($sanrio_character["colors"]);    
 }
-var_dump($lineupColors);
 
-$count = 0;
-foreach ($lineupColors as $lineupColor) {
-    if($count == 0){
-        $count["$lineupColor"] = 1;
-    } else {
-        $count["$lineupColor"]++;
-    }
-}
+echo "\n-------------------------\n";
+var_dump($countColors);exit;
+echo "\n-------------------------\n";
+
 
 /**
  * キャラの名前で一番使われてるアルファベットとその数を算出
