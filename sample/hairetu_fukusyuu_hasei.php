@@ -61,13 +61,28 @@ $sanrio_characters = [
  */
 
 $lineupColors = [];
-foreach ($sanrio_characters as $sanrio_character) {//1.2.
-    $countColors[] = array_count_values($sanrio_character["colors"]);    
+foreach ($sanrio_characters as $key => $sanrio_character) {//1.2.
+//    $countColors[] = array_count_values($sanrio_character["colors"]);    
+    $countColors[] = count($sanrio_character["colors"]);    
+    $maxCount = max($countColors);
 }
+/*
+foreach ($countColors as $countcolor) {
+    $maxCount = max($countColor);
+}
+*/
+echo "\n-------------------------\n";
+var_dump($countColors);
+echo "\n-------------------------\n";
+var_dump($maxCount);
+echo "\n-------------------------\n";
+var_dump($key["3"]);
+exit;
 
-echo "\n-------------------------\n";
-var_dump($countColors);exit;
-echo "\n-------------------------\n";
+
+foreach ($countColors as $key => $countColor) {
+
+}
 
 
 /**
