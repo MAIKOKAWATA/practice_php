@@ -60,7 +60,7 @@ $sanrio_characters = [
  * 4. キャラ名を返す
  */
 
-$lineupColors = [];
+$countColors = [];
 foreach ($sanrio_characters as $key => $sanrio_character) {
 //    $countColors[] = array_count_values($sanrio_character["colors"]);    
     $countColors[] = count($sanrio_character["colors"]);    //1,2
