@@ -91,15 +91,28 @@ $sanrio_characters = [
 /**
  * 4. カウント用の配列にすでに色のキーがあれば+1、なければキーを追加して数値1
  */
+
 $countColors = [];
+foreach ($sanrio_characters as $key => $sanrio_character ) {
+    if ($key == 0){
+        $charaColors[] = array_count_values($sanrio_character["colors"]);
+        //$charaColors = $sanrio_character["colors"];
+    } else {
+        array_merge_recursive($charaColors ,array_count_values($sanrio_character["colors"]));    
+    }
+}
+var_dump($charaColors);
+/* ためし
 foreach ($sanrio_characters as $key => $sanrio_character) {
     $charaColors[] = $sanrio_character["colors"];
     if (array_key_exists($key , $countColors) != TRUE) {
         echo "TRUEじゃないよ！(比べて同じものがない)\n";
-
     }
 }
-/*foreach ($sanrio_characters as $keysanrio => $sanrio_character) {
+*/
+
+/*　これはだめ？？
+foreach ($sanrio_characters as $keysanrio => $sanrio_character) {
     $charaColors[] = $sanrio_character["colors"];
     //foreach ($countColors as $charaColors[$keycolor] => $countColor) {
         if (array_key_exists ( $keysanrio , $charaColors) != TRUE){
@@ -110,9 +123,18 @@ foreach ($sanrio_characters as $key => $sanrio_character) {
     //        }
     //}
     
-}*/
+}
+*/
+
 /*
 var_dump($charaColors);
 echo "\n-------------------\n";
 var_dump($countColors);
+*/
+/*
+1.サンリオの配列のループをまわす
+2.色の情報のみをとってくる
+3.色名とその出現回数を調べる
+4.色名ごとの出現回数を合算して出す
+5.一番出現回数の大きいものを返す
 */
