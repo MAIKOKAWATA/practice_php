@@ -9,7 +9,14 @@ $sanrio_characters = [
 $gyakuSanrio = [];
 $length = count($sanrio_characters)-1;
 
-for ($i=$length;$i>=0;$i--) {
+//for ($i=$length;$i>=0;$i--) {
+//    $gyakuSanrio[] = $sanrio_characters[$i];
+//}
+//print_r($gyakuSanrio);
+
+$i = $length;
+while ($i>=0) {
     $gyakuSanrio[] = $sanrio_characters[$i];
+    $i--;
 }
 print_r($gyakuSanrio);
