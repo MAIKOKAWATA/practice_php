@@ -65,47 +65,54 @@ $sanrio_characters = [
  */
 
 /**
- * 1. 色をカウントする配列の箱を用意する
+ * 1. 色をカウントする配列の箱を用意する - OK
  */
 
-$countColors = [];
+//$countColors = [];
 
 /**
- * 2. サンリオ配列のループを回す
+ * 2. サンリオ配列のループを回す - OK
  */
 
-$countColors = [];
-foreach ($sanrio_characters as $sanrio_character) {
+//$countColors = [];
+//foreach ($sanrio_characters as $sanrio_character) {
 
-}
+//}
 
 /**
- * 3. キャラの色情報をとってくる
+ * 3. キャラの色情報をとってくる - OK
  */
 
-$countColors = [];
-foreach ($sanrio_characters as $sanrio_character) {
-    $charaColors[] = $sanrio_character["colors"];
-}
+//$countColors = [];
+//foreach ($sanrio_characters as $sanrio_character) {
+//    $charaColors[] = $sanrio_character["colors"];
+//}
 
 /**
  * 4. カウント用の配列にすでに色のキーがあれば+1、なければキーを追加して数値1
  */
+$countColors = [];
+foreach ($sanrio_characters as $key => $sanrio_character) {
+    $charaColors[] = $sanrio_character["colors"];
+    if (array_key_exists($key , $countColors) != TRUE) {
+        echo "TRUEじゃないよ！(比べて同じものがない)\n";
 
-
-
- /*
- $countColors = [];//1. 色をカウントする配列の箱を用意する
- foreach ($sanrio_characters as $sanrio_character) {//2. サンリオ配列のループを回す
-    $charaColors[] = $sanrio_character["colors"];//3. キャラの色情報をとってくる
- }
-foreach ($charaColors as $key => $charaColor) {
-    if ($key ==0) {
-        $countColors[] = $charaColors[$key];
-        $charaColor[$key]["count"] = 1;
     }
 }
- var_dump($countColors);
- var_dump($charaColor[0]["count"]);
- exit;
- */
+/*foreach ($sanrio_characters as $keysanrio => $sanrio_character) {
+    $charaColors[] = $sanrio_character["colors"];
+    //foreach ($countColors as $charaColors[$keycolor] => $countColor) {
+        if (array_key_exists ( $keysanrio , $charaColors) != TRUE){
+            $countColors[$keycolor] = $charaColors;
+            $countColors[$countColor] = 1;
+        }// else {
+    //            $countColor[] = 1++;   
+    //        }
+    //}
+    
+}*/
+/*
+var_dump($charaColors);
+echo "\n-------------------\n";
+var_dump($countColors);
+*/
