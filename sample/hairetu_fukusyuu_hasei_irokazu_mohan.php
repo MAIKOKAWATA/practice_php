@@ -61,7 +61,7 @@ foreach ($sanrio_characters as $sanrio_character) {
 $countColors = array_count_values($useColors);
 //var_dump($countColors);exit;
 
-//$countColors = ["yellow"=>5,"black"=>8,"white"=>1];
+//$countColors = ["yellow"=>5,"black"=>8,"white"=>1];の状態
 
 $resultColor = "";//結果を入れる変数を用意する
 $countMax = 0;//カウントの最大値を0にしておく
