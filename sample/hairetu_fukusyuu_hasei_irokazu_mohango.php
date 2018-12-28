@@ -26,6 +26,7 @@ $sanrio_characters = [
         "colors" => [
             "yellow",
             "brown",
+            "white",//+
         ]
     ],
     "3" => [
@@ -73,12 +74,22 @@ $countColors = [];//1. 色をカウントする配列の箱を用意する
      }
 }
 //var_dump($countColors);
+/*
 $resultColor = "";
 $countMax = 0;
 foreach ($countColors as $countColor => $count) {
     if ($countMax < $count) {
-        $resultColor = $color;
+        $resultColor = $countColor;
         $countMax = $count;
     }
 }
-echo $resultColor;
+*/
+$resultColor = [];
+$countMax = 0;
+foreach ($countColors as $countColor => $count) {
+    if ($countMax <= $count) {
+        $resultColor[] = $countColor;
+        $countMax = $count;
+    }
+}
+print_r($resultColor);
