@@ -26,7 +26,7 @@ $sanrio_characters = [
         "colors" => [
             "yellow",
             "brown",
-            "white",//+
+            //"white",//+
         ]
     ],
     "3" => [
@@ -35,7 +35,7 @@ $sanrio_characters = [
         "colors" => [
             "yellow",
             "light_blue",
-            "brack",
+            "black",
             "light_pink",
             "white",
         ]
@@ -86,8 +86,13 @@ foreach ($countColors as $countColor => $count) {
 */
 $resultColor = [];
 $countMax = 0;
+//var_dump($countColors);exit;
 foreach ($countColors as $countColor => $count) {
-    if ($countMax <= $count) {
+    if ($countMax < $count){
+        $resultColor = [];
+        $resultColor[] = $countColor;
+        $countMax = $count;
+    } elseif ($countMax == $count) {
         $resultColor[] = $countColor;
         $countMax = $count;
     }
